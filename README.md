@@ -1,4 +1,4 @@
-# ESP32 A2DP Source → TWS Media Player
+# ESP32 A2DP Source → Media Player TWS
 
 ESP32 (NodeMCU-32S) sebagai **Bluetooth Classic A2DP Source** yang mengirim audio ke TWS earbuds / speaker Bluetooth.
 
@@ -104,13 +104,13 @@ Ganti dengan alamat MAC TWS kamu. Cari pakai HP:
 | `Audio State: 1` | Streaming aktif |
 | `UNDERFLOW` | Buffer kosong, data PCM kurang cepat |
 
-### Common Issues
+### Masalah Umum
 
 **BT ctrl enable fail: ESP_ERR_INVALID_ARG**
 - Pastikan `CONFIG_BTDM_CTRL_MODE_BR_EDR_ONLY=y` di sdkconfig
 - Pastikan `esp_bt_controller_enable()` pakai mode yang sesuai
 
-**No sound / Underflow**
+**Tidak ada suara / Underflow**
 - Pakai callback model (`esp_a2d_source_register_data_callback`), bukan push model
 - Jangan pakai `esp_a2d_source_audio_data_send()` untuk streaming
 
